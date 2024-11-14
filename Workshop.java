@@ -69,29 +69,17 @@ public class Workshop{
         } 
         return flag;  
     }
-    static void invoke_isDigit(){
+
+    public static void main()
+    {
         boolean result=isDigit("876521");
         if(result)
             System.out.println("yes it digit \n");
         else
             System.out.println("no it not digit\n");
-    }
-    //5.Function getgreeting by accepting name and print greeting with name?
 
-    public static void getGreeting(String name){
-        System.out.printf("hello,"+name);
-        System.out.println("\nwelcome, what you want to have\n");
-    }
-
-    public static void invoke_getGreeting(){
-        getGreeting("prateek k");
-        getGreeting("viraj");
-    }
-
-    public static void main()
-    {
-        invoke_getGreeting();
     }
     
     
+   
 }
