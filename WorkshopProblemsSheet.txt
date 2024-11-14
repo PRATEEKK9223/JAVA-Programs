@@ -9,7 +9,7 @@
   7.Function getstrlength to get String to get string length?
   8.Function getCOUNTOfOvewel to count ovewels in given string?
   9.Function to reverse a string using other memory and also in same memory?
- 10.Function to revers array elements?
+ 10.Function to revers array elements and sum of array?
  11.Function isPalindrom to find given string is palindron or not if print true?
  12.Function to print max and min value in an array?
  13.Function to get sum all elementes in an array?

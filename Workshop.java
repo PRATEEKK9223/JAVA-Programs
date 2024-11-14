@@ -175,6 +175,7 @@ public class Workshop{
        System.out.println("te number of ovwels are "+ result);
 
     }
+    //  9.Function to reverse a string using other memory and also in same memory?
     //reversing  the str using another memory
     static String reversStr(String str){
         StringBuffer outstr=new StringBuffer();//here StringBuffer is the class that alows the modification in string
@@ -213,8 +214,8 @@ public class Workshop{
         return new String(arrayStr);//to covert the array of str into str
 
     }
-    public static void main()
-    {
+
+    static void invoke_revers_v2(){
         Scanner S = new Scanner(System.in);
         System.out.println("enter the string to revers");
         String name;
@@ -223,6 +224,108 @@ public class Workshop{
         System.out.println("BEFORE::"+name);
         name=Revers_v2(name);
         System.out.println("AFTER::"+name);
+    }
+    //10.Function to revers array elements and sum of array elements?
 
+    public static int[] ReverArray(int[] array){
+        int end=array.length-1;
+        int start=0;
+        for(;start<end;start++,end--)
+        {
+            int temp=array[start];
+            array[start]=array[end];
+            array[end]=temp;
+        }
+        return array;
+    }
+
+    static int getSumOfArrayElements(int array[]){
+        int sum=0;
+        for(int element:array){
+            sum+=element;
+        }
+        return sum;
+    }
+
+    static void invoke_ReversArrayAndgetSumOfArrayElements(){
+        int number;
+        System.out.println("enter the array size");
+        Scanner S1=new Scanner(System.in);
+        number=S1.nextInt();
+        int[] myarray=new int[number];
+        System.out.println("enter the array elements");
+        for(int i=0;i<number;i++){
+            myarray[i]=S1.nextInt();
+        }
+        S1.close();
+        int[] array=ReverArray(myarray);
+        System.out.println("after reversing the array");
+        for(int i=0;i<myarray.length;i++){
+            System.out.printf("%d ",array[i]);
+        }
+        int sum=getSumOfArrayElements(myarray);
+        System.out.println("\nsum of array element is "+sum);
+        
+    }
+    //11.Function isPalindrom to find given string is palindron or not if print true?
+
+    public static boolean isPalindrom(String str){
+        char[] arrayStr=str.toCharArray();
+        int start=0;
+        int end=arrayStr.length-1;
+        while(start<end){
+            if(arrayStr[start]!=arrayStr[end])
+                return false;
+            start++;
+            end--;
+        }
+        return true;
+    }
+    public void invoke_isPalindrom(){
+        Scanner scanner=new Scanner(System.in);
+        String name;
+        System.out.println("enter the string to check palindrom");
+        name=scanner.nextLine();
+        scanner.close();
+        if(isPalindrom(name))
+            System.out.println("entered string "+ name +" is palindrom");
+        else
+        System.out.println("entered string "+ name +" is not palindrom");
+
+    }
+    //12.Function to print max and min value in an array?
+
+    public static void MaxAndMin(int []array){
+        int max=array[0];//MIN_VALUE
+        int min=array[0];//MAX_VALUE
+        for(int i=1;i<array.length;i++)
+        {
+            if(array[i]>max)
+                max=array[i];
+            if(array[i]<min)
+                min=array[i];
+        }
+        System.out.println("the maximum value is "+max);
+        System.out.println("the minimum value is "+min);
+
+    }
+    static void invoke_MaxAndMin()
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("enter the size of the array\n");
+        int num=scan.nextInt();
+        int[] array=new int[num];
+        System.out.println("enter the array elements");
+        for(int i=0;i<num;i++)
+        {
+            array[i]=scan.nextInt();
+        }
+        scan.close();
+        MaxAndMin(array);
+    }
+
+    public static void main()
+    {
+        
     }
 }
