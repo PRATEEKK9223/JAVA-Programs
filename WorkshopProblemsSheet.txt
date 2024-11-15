@@ -12,7 +12,7 @@
  10.Function to revers array elements and sum of array?
  11.Function isPalindrom to find given string is palindron or not if print true?
  12.Function to print max and min value in an array?
- 13.Function to get sum all elementes in an array?
+ 13.Function to search the  elementes in an array?(binary search)
  14.Function to merge two arrays and return output in firstarray?
  15.Function to get second largest element in an integer array?
  16.Function to print unique element in an integer array printUniqueelment?

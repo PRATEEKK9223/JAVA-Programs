@@ -324,8 +324,135 @@ public class Workshop{
         MaxAndMin(array);
     }
 
-    public static void main()
+    //13.Function to search the  elementes in an array?(binary search)
+
+    public static int  Binary_search(int[] array,int key)
     {
-        
+        int leftIndex=0;
+        int rightIndex=array.length-1;
+        //int midIndex=leftIndex+rightIndex/2;
+        while(leftIndex<=rightIndex)
+        {
+            int midIndex=(leftIndex+rightIndex)/2;
+            if(key==array[midIndex])
+                return midIndex;
+            else if(key<array[midIndex]) 
+                rightIndex=midIndex-1;
+            else if(key>array[midIndex])
+                leftIndex=midIndex+1;
+
+        }
+        return -1;
     }
+    public static void invoke_BinarySearch(){
+        int[] array={1,2,3,4,5,6,7};
+        System.out.println("enter the key you want to search");
+        Scanner scan=new Scanner(System.in);
+        int key=scan.nextInt();
+        scan.close();
+        int index=Binary_search(array,key);
+        if(index<0)
+             System.out.println("entered key is not found");
+         else{
+             System.out.println("entered key is found at index " + index);
+         }
+    }
+    //14.Function to merge two arrays and return output in firstarray?
+    public static int[] MergeArray(int[] array1,int[] array2)
+    {
+        int end=array2.length;
+        int start=array1.length-end;
+        for(int i=0;i<end;i++){
+            array1[start]=array2[i];
+            start++;
+        }
+        return array1;
+    }
+    public static void invoke_MergArray()
+    {
+        Scanner scan=new Scanner(System.in);
+        int num1,num2;
+        System.out.println("enter he size of array1");
+        num1=scan.nextInt();
+        System.out.println("enter he size of array2");
+        num2=scan.nextInt();
+
+        int[] array1=new int[num1+num2];
+        int[] array2=new int[num2];
+        System.out.println("enter te array1 elements");
+        for(int i=0;i<num1;i++)
+        {
+            array1[i]=scan.nextInt();
+        }
+        System.out.println("enter te array2 elements");
+        for(int i=0;i<num2;i++)
+        {
+            array2[i]=scan.nextInt();
+        }
+        scan.close();
+        array1=MergeArray(array1,array2);
+        System.out.println("After:merging the array1 elements");
+        for(int i=0;i<array1.length;i++)
+        {
+            System.out.printf("%d ",array1[i]);
+        }
+    }
+    //15.Function to get second largest element in an integer array?
+
+    public static int getSecondLargest(int[] array){
+        int large=array[0];
+        int secondLarge=array[0];
+        for(int i=1;i<array.length;i++)
+        {
+            if(array[i]>large)
+            {
+                secondLarge=large;
+                large=array[i];
+            }
+            else if(array[i]>secondLarge)
+                secondLarge=array[i];
+
+        }
+        return secondLarge;
+
+    }
+    public static void invoke_getSecondLargest()
+    {
+        int[] myArray={101,687,699,7664,1000,1005,4576,798,5000,685};
+        int result=getSecondLargest(myArray);
+        System.out.println("second largest is "+result);
+    }
+    //16.Function to print unique element in an integer array printUniqueelment?
+
+    public static void Unique(int[] array)
+    {
+        for(int readIndex=0;readIndex<array.length;readIndex++)
+        {
+            boolean flage=false;
+            for(int compareIndex=0;compareIndex<array.length;compareIndex++)
+            {
+                if(readIndex==compareIndex)
+                    continue;
+                else if(array[readIndex]==array[compareIndex])
+                {
+                    flage=true;
+                    break;
+                }
+            }
+            if(flage==false)
+                System.out.printf("%d  ",array[readIndex]);
+        }
+    }
+    public static void invoke_Unique()
+    {
+        int[] array={4,3,4,5,6,7,1,1,3};
+        Unique(array);
+    }
+    
+
+    public static void main(String[] args)
+    {
+        invoke_Unique();
+    }
+
 }
