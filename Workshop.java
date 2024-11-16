@@ -448,11 +448,71 @@ public class Workshop{
         int[] array={4,3,4,5,6,7,1,1,3};
         Unique(array);
     }
+    //17.Function  to print intrsection or common elements of two integer arrays?
     
+    public static void Intersection(int[] array1,int[] array2)
+    {
+        for(int i=0;i<array1.length;i++)
+        {
+            boolean isFound=false;
+            for(int j=0;j<array2.length;j++)
+            {
+                if(array1[i]==array2[j])
+                {
+                    isFound=true;
+                    break;
+                }
+                    
+            }
+            if(isFound)
+                System.out.printf("%d ",array1[i]);
+        }
+    }
+    public static void invoke_Intersection()
+    {
+        int[] friend1={1,23,4,5,8,2};
+        int[] friend2={1,2,3,4,5,7,23};
+        Intersection(friend1,friend2);
+    }
+    //18.Function to get count of words in the string ?
 
+    public static int getCountWords(String sentence)
+    {
+        if(sentence==null)
+            return 0;
+        
+        int count=0;
+        boolean isWord=false;
+        //char[] array=sentence.toCharArray();
+        //int length=array.length;
+        int length=sentence.length();
+        for(int i=0;i<length;i++)
+        {   
+            char oneChar=sentence.charAt(i);
+            if(oneChar==' '|| oneChar=='\t' || oneChar=='\n')
+            {
+                if(isWord)
+                {
+                    count++;
+                    isWord=false;
+                }
+            }
+            else
+            {
+                isWord=true;
+            }
+        }
+        if(isWord)
+            count++;
+        return count;
+    }
     public static void main(String[] args)
     {
-        invoke_Unique();
+        String str="""hello  world hi cd   gtyf gfgfyjd\n
+        gig""";
+        int result=getCountWords(str);
+        System.out.println("number of words= "+result);
+
     }
 
 }
