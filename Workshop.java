@@ -506,12 +506,68 @@ public class Workshop{
             count++;
         return count;
     }
-    public static void main(String[] args)
+    public static void invoke_getCountWords()
     {
-        String str="""hello  world hi cd   gtyf gfgfyjd\n
-        gig""";
+        String str="hello  world hi cd gtyf gfgfyjd";
         int result=getCountWords(str);
         System.out.println("number of words= "+result);
+    }
+
+    //19.Function to print binary values of various input like integer ,char,also perform shift operation on integer?
+    
+    public static void printBinary(int number)
+    //When give only int then it is both positivt and negative (singed) number  
+    {
+        if(number<0)
+            return;
+        int mask=1;//00000000000000000000000000000001 (for 32 bit system)
+        int Bites=Integer.BYTES*8;//to find the number of bits in this system
+        mask=mask<<(Bites-2);//10000000000000000000000000000000
+        System.out.println("\nbinary reprsenataion of "+number);
+        while(mask>0)
+        {
+            int result= mask & number;//it for doing bit and bte number and mask if result 0 then pf(0) otherwice pf(1)
+            if(result==0)
+                System.out.print("0");
+            else
+                System.out.print("1");
+            mask=mask>>1;//to move one-one bit for each iteration
+        }
+
+    }
+
+    public static void invoke_printBinary()
+    {
+        printBinary(2);
+        printBinary(3);
+        printBinary(5);
+        printBinary(100);
+    }
+    //20.Function to remove spaces from the string ?
+
+    public static void removeSpace(String input)
+    {
+        int length=input.length();
+        for(int index=0;index<length;index++)
+        {
+            char character=input.charAt(index);
+            if(character==' ')
+                continue;
+            System.out.printf("%c",character);
+        }
+    }
+    static void invoke_removeSpace()
+    {
+        String str;
+        System.out.println("enter the string ");
+        Scanner read=new Scanner(System.in);
+        str=read.nextLine();
+        read.close();
+        removeSpace(str);
+    }
+    public static void main(String[] args)
+    {
+        invoke_removeSpace();
 
     }
 
